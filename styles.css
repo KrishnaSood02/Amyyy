@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    background: linear-gradient(to bottom right, #ffcccb, #ffb6c1);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('heart-pattern.jpg'); /* Add your heart pattern image here */
+    opacity: 0.1; /* Adjust opacity for subtlety */
+    z-index: 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 350px;
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    z-index: 1; /* Ensure card is above the background */
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1);
+}
+
+.title {
+    color: #ff69b4;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.love-letter {
+    margin: 20px 0;
+}
+
+.photo-album {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.photo-album.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photos img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10px;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0.8;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.photos img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+ padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.memory {
+    transition: transform 0.3s ease;
+}
